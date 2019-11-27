@@ -6,6 +6,8 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,7 +18,7 @@
         <URL value="@cadastropaciente.css" />
     </stylesheets>
    <children>
-      <Pane layoutX="10.0" layoutY="10.0" prefHeight="372.0" prefWidth="600.0">
+      <Pane layoutX="10.0" layoutY="10.0" prefHeight="372.0" prefWidth="946.0">
          <children>
             <Label layoutX="23.0" layoutY="26.0" text="Código:" />
             <Label layoutX="23.0" layoutY="125.0" text="Nome:" />
@@ -46,6 +48,16 @@
                   <RadioButton fx:id="radioFeminino" mnemonicParsing="false" text="Feminino" toggleGroup="$sexoRadioGroup" />
                </toggles>
             </ToggleButtonGroup>
+            <TableView fx:id="tableView" layoutX="628.0" layoutY="3.0" prefHeight="264.0" prefWidth="304.0">
+               <columns>
+                  <TableColumn fx:id="tableColumnLogin" prefWidth="84.0" text="Login" />
+                  <TableColumn fx:id="tableColumnNome" prefWidth="122.0" text="Nome Completo" />
+                  <TableColumn fx:id="tableColumnEmail" prefWidth="97.0" sortType="DESCENDING" text="Email" />
+               </columns>
+            </TableView>
+            <Button fx:id="btnExcluir" layoutX="876.0" layoutY="324.0" mnemonicParsing="false" onAction="#excluirTabela" text="Excluir" />
+            <Button fx:id="btnAlterar" layoutX="803.0" layoutY="324.0" mnemonicParsing="false" onAction="#alterarTabela" text="Alterar" />
+            <Button fx:id="btnInserir" layoutX="729.0" layoutY="324.0" mnemonicParsing="false" onAction="#inserirTabela" text="Inserir" />
          </children>
       </Pane>
    </children>
