@@ -20,7 +20,7 @@
                <menus>
                   <Menu mnemonicParsing="false" text="Cadastro">
                      <items>
-                        <MenuItem fx:id="MenuItemCadastroPacientes" mnemonicParsing="false" text="Pacientes" />
+                        <MenuItem fx:id="menuItemCadastroDoador" mnemonicParsing="false" onAction="#abreTelaCadastroDoador" text="Pacientes" />
                      </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Relatórios">
@@ -44,7 +44,7 @@
                <children>
                   <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="147.0" text="Código do Paciente" />
                   <TextField fx:id="textCodPaciente" GridPane.columnIndex="1" />
-                  <Button fx:id="btnPesquisar" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Pesquisar" GridPane.columnIndex="2" />
+                  <Button fx:id="btnPesquisar" mnemonicParsing="false" onAction="#pesquisarDoador" prefHeight="25.0" prefWidth="84.0" text="Pesquisar" GridPane.columnIndex="2" />
                </children>
             </GridPane>
          </center>
