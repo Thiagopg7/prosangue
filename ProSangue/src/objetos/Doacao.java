@@ -21,8 +21,8 @@ public class Doacao {
     private boolean sifilis;
     private boolean aids;
     private boolean htlv;
-    private boolean teste_anemia;
-    private boolean triagem_clinica;
+    private boolean testeAnemia;
+    private boolean triagemClinica;
     private Timestamp horario;
     private String imunohematologia;
 
@@ -90,20 +90,20 @@ public class Doacao {
         this.htlv = htlv;
     }
 
-    public boolean isTeste_anemia() {
-        return teste_anemia;
+    public boolean isTesteAnemia() {
+        return testeAnemia;
     }
 
-    public void setTeste_anemia(boolean teste_anemia) {
-        this.teste_anemia = teste_anemia;
+    public void setTesteAnemia(boolean teste_anemia) {
+        this.testeAnemia = teste_anemia;
     }
 
-    public boolean isTriagem_clinica() {
-        return triagem_clinica;
+    public boolean isTriagemClinica() {
+        return triagemClinica;
     }
 
-    public void setTriagem_clinica(boolean triagem_clinica) {
-        this.triagem_clinica = triagem_clinica;
+    public void setTriagemClinica(boolean triagem_clinica) {
+        this.triagemClinica = triagem_clinica;
     }
 
     public Timestamp getHorario() {

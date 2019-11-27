@@ -8,6 +8,7 @@ package persistencia;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +26,19 @@ public class DoadorBD {
     public DoadorBD() {
         conexao = new Banco();
     }
-
+//    private int id;
+//    private int fkDoador;
+//    private boolean hepatiteB;
+//    private boolean hepatiteC;
+//    private boolean chagas;
+//    private boolean sifilis;
+//    private boolean aids;
+//    private boolean htlv;
+//    private boolean testeAnemia;
+//    private boolean triagemClinica;
+//    private Timestamp horario;
+//    private String imunohematologia;
+    
     public void cadastrar(Doador doador) {
         try {
 
