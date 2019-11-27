@@ -6,6 +6,7 @@
 package objetos;
 
 import java.sql.Timestamp;
+import javafx.scene.control.TextField;
 
 /**
  *

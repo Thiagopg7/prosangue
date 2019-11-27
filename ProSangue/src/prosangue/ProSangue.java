@@ -20,7 +20,7 @@ public class ProSangue extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("CadastroPaciente.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("TelaInicial.fxml"));
 
         Scene scene = new Scene(root);
 

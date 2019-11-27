@@ -2,6 +2,7 @@ package prosangue;
 
 import java.net.URL;
 import java.sql.Array;
+import java.sql.SQLException;
 import java.util.Observable;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -18,6 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
+import objetos.Doador;
 import persistencia.DoadorBD;
 
 public class CadastroPacienteController {
@@ -56,33 +58,21 @@ public class CadastroPacienteController {
     private Button btnCancelar;
 
     @FXML
-    private ToggleGroup sexoRadioGroup;
+    private TableView<Doador> tableView;
+    @FXML
+    private TableColumn<Doador, String> tableColumnLogin;
+    @FXML
+    private TableColumn<Doador, String> tableColumnNome;
+    @FXML
+    private TableColumn<Doador, String> tableColumnEmail;
+
+    private ObservableList<Doador> observableDoador;
 
     @FXML
-    private RadioButton radioMasculino;
+    private Button btnInserir;
+    @FXML
+    private TextField textEndereco;
 
-    @FXML
-    private RadioButton radioFeminino;
-    @FXML
-    private TableView<DoadorBD> tableView;
-    @FXML
-    private TableColumn<DoadorBD, String> tableColumnLogin;
-    @FXML
-    private TableColumn<DoadorBD, String> tableColumnNome;
-    @FXML
-    private TableColumn<DoadorBD, String> tableColumnEmail;
-    
-    private ObservableList<DoadorBD> observableDoadorBD;
-    
-    DoadorBD novodoador = new DoadorBD();
-    @FXML
-    private Button btnExcluirTabela;
-    @FXML
-    private Button btnAlterarTabela;
-    @FXML
-    private Button btnInserirTabela;
-    
-    
     @FXML
     void alterarDoador(ActionEvent event) {
 
@@ -90,7 +80,26 @@ public class CadastroPacienteController {
 
     @FXML
     void cadastrarDoador(ActionEvent event) {
+        Doador doador;
+        DoadorBD doadorBD;
+        doador = new Doador();
+        doadorBD = new DoadorBD();
 
+        doador.setNome(textNome.getText());
+        // doador.setDataNascimento(pickerNascimento.get);
+        doador.setEndereco(textEndereco.getText());
+        // doador.setID(dataNascimento);
+        doador.setMae(textMae.getText());
+        doador.setPai(textPai.getText());
+        doador.setRg(textRG.getText());
+//        if (radioFeminino.isSelected()) {
+//            doador.setSexo("Feminino");
+//        }
+//        if (radioMasculino.isSelected()) {
+//            doador.setSexo("Masculino");
+//        }
+
+        // doador.setUltimaDoacao(dataNascimento);
     }
 
     @FXML
@@ -106,7 +115,7 @@ public class CadastroPacienteController {
     @FXML
     private void excluirTabela(ActionEvent event) {
         int i = tableView.getSelectionModel().getSelectedIndex();
-        observableDoadorBD.remove(i);
+        observableDoador.remove(i);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
         alert.setTitle("Pedido Excluido");
@@ -123,19 +132,25 @@ public class CadastroPacienteController {
     @FXML
     private void inserirTabela(ActionEvent event) {
         int i = 0;
-       // novodoador.buscarIndividualBD(list);
-       // novodoador.setLogin(/*login pego do banco*/);
-       // novodoador.setNome(/*nome pego do banco*/);
+        // novodoador.buscarIndividualBD(list);
+        // novodoador.setLogin(/*login pego do banco*/);
+        // novodoador.setNome(/*nome pego do banco*/);
         //novodoador.setEmail(/*email pego do banco*/);
-        observableDoadorBD.add(novodoador);
-        
+        Doador doador = new Doador();
+        observableDoador.add(doador);
+
     }
-    public void initialize(URL location, ResourceBundle resources) {
-      observableDoadorBD = FXCollections.observableArrayList();      
-      tableColumnLogin.setCellValueFactory(new PropertyValueFactory<>("loginDoador"));
-      tableColumnNome.setCellValueFactory(new PropertyValueFactory<>("nomeDoador"));
-      tableColumnEmail.setCellValueFactory(new PropertyValueFactory<>("emailDoador"));
-      tableView.setItems(observableDoadorBD);
+
+    public void initialize(URL location, ResourceBundle resources) throws SQLException {
+        DoadorBD doadorBD;
+        doadorBD = new DoadorBD();
+        observableDoador = FXCollections.observableArrayList();
+        observableDoador = doadorBD.buscarTodosBD();
+
+        tableColumnLogin.setCellValueFactory(new PropertyValueFactory<>("loginDoador"));
+        tableColumnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tableColumnEmail.setCellValueFactory(new PropertyValueFactory<>("emailDoador"));
+        tableView.setItems(observableDoador);
     }
 
 }

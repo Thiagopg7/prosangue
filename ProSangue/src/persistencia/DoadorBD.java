@@ -12,6 +12,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javax.swing.JOptionPane;
 import objetos.Doador;
 
@@ -63,8 +65,9 @@ public class DoadorBD {
 
     }
 
-    public ArrayList<Doador> buscarTodosBD() throws SQLException {
-        ArrayList<Doador> doadorList = new ArrayList();
+    public ObservableList<Doador> buscarTodosBD() throws SQLException {
+        ObservableList<Doador> doadorList = FXCollections.observableArrayList();      
+;
         ResultSet consulta;
         conexao.conectar();
         Statement declaracao;
