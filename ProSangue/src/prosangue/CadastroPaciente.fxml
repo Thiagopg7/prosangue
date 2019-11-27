@@ -48,16 +48,16 @@
                   <RadioButton fx:id="radioFeminino" mnemonicParsing="false" text="Feminino" toggleGroup="$sexoRadioGroup" />
                </toggles>
             </ToggleButtonGroup>
-            <TableView fx:id="tableView" layoutX="628.0" layoutY="3.0" prefHeight="264.0" prefWidth="304.0">
+            <TableView fx:id="tableView" layoutX="630.0" layoutY="11.0" prefHeight="264.0" prefWidth="304.0">
                <columns>
                   <TableColumn fx:id="tableColumnLogin" prefWidth="84.0" text="Login" />
                   <TableColumn fx:id="tableColumnNome" prefWidth="122.0" text="Nome Completo" />
                   <TableColumn fx:id="tableColumnEmail" prefWidth="97.0" sortType="DESCENDING" text="Email" />
                </columns>
             </TableView>
-            <Button fx:id="btnExcluir" layoutX="876.0" layoutY="324.0" mnemonicParsing="false" onAction="#excluirTabela" text="Excluir" />
-            <Button fx:id="btnAlterar" layoutX="803.0" layoutY="324.0" mnemonicParsing="false" onAction="#alterarTabela" text="Alterar" />
-            <Button fx:id="btnInserir" layoutX="729.0" layoutY="324.0" mnemonicParsing="false" onAction="#inserirTabela" text="Inserir" />
+            <Button fx:id="btnExcluirTabela" layoutX="876.0" layoutY="324.0" mnemonicParsing="false" onAction="#excluirTabela" text="Excluir" />
+            <Button fx:id="btnAlterarTabela" layoutX="803.0" layoutY="324.0" mnemonicParsing="false" onAction="#alterarTabela" text="Alterar" />
+            <Button fx:id="btnInserirTabela" layoutX="729.0" layoutY="324.0" mnemonicParsing="false" onAction="#inserirTabela" text="Inserir" />
          </children>
       </Pane>
    </children>

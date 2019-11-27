@@ -71,12 +71,16 @@ public class CadastroPacienteController {
     private TableColumn<DoadorBD, String> tableColumnNome;
     @FXML
     private TableColumn<DoadorBD, String> tableColumnEmail;
-    @FXML
-    private Button btnInserir;
     
     private ObservableList<DoadorBD> observableDoadorBD;
     
     DoadorBD novodoador = new DoadorBD();
+    @FXML
+    private Button btnExcluirTabela;
+    @FXML
+    private Button btnAlterarTabela;
+    @FXML
+    private Button btnInserirTabela;
     
     
     @FXML
@@ -119,10 +123,10 @@ public class CadastroPacienteController {
     @FXML
     private void inserirTabela(ActionEvent event) {
         int i = 0;
-        novodoador.buscarIndividualBD(i);
-        novodoador.setLogin(/*login pego do banco*/);
-        novodoador.setNome(/*nome pego do banco*/);
-        novodoador.setEmail(/*email pego do banco*/);
+       // novodoador.buscarIndividualBD(list);
+       // novodoador.setLogin(/*login pego do banco*/);
+       // novodoador.setNome(/*nome pego do banco*/);
+        //novodoador.setEmail(/*email pego do banco*/);
         observableDoadorBD.add(novodoador);
         
     }
