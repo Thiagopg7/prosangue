@@ -2,13 +2,19 @@ package prosangue;
 
 import java.net.URL;
 import java.sql.Array;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Observable;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -19,10 +25,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 import objetos.Doador;
 import persistencia.DoadorBD;
 
-public class CadastroPacienteController {
+public class CadastroPacienteController implements Initializable {
 
     @FXML
     private TextField textCodigo;
@@ -60,11 +67,7 @@ public class CadastroPacienteController {
     @FXML
     private TableView<Doador> tableView;
     @FXML
-    private TableColumn<Doador, String> tableColumnLogin;
-    @FXML
     private TableColumn<Doador, String> tableColumnNome;
-    @FXML
-    private TableColumn<Doador, String> tableColumnEmail;
 
     private ObservableList<Doador> observableDoador;
 
@@ -72,6 +75,10 @@ public class CadastroPacienteController {
     private Button btnInserir;
     @FXML
     private TextField textEndereco;
+    @FXML
+    private TableColumn<Doador, Integer> tableColumnCod;
+    @FXML
+    private TableColumn<Doador, String> tableColumnRG;
 
     @FXML
     void alterarDoador(ActionEvent event) {
@@ -86,7 +93,10 @@ public class CadastroPacienteController {
         doadorBD = new DoadorBD();
 
         doador.setNome(textNome.getText());
-        // doador.setDataNascimento(pickerNascimento.get);
+        LocalDate localDate = pickerNascimento.getValue();
+        Date dataNascimentoConvertida = Date.valueOf(localDate); // Magic happens here!
+
+        doador.setDataNascimento(dataNascimentoConvertida);
         doador.setEndereco(textEndereco.getText());
         // doador.setID(dataNascimento);
         doador.setMae(textMae.getText());
@@ -100,16 +110,25 @@ public class CadastroPacienteController {
 //        }
 
         // doador.setUltimaDoacao(dataNascimento);
+        doadorBD.cadastrar(doador);
+        observableDoador.add(doador);
     }
 
     @FXML
     void cancelarCadastro(ActionEvent event) {
-
+        Stage stage = (Stage) btnCancelar.getScene().getWindow();
+        // do what you have to do
+        stage.close();
     }
 
     @FXML
     void excluirDoador(ActionEvent event) {
-
+        Doador doador;
+        DoadorBD doadorBD;
+        doador = new Doador();
+        doadorBD = new DoadorBD();
+        doador.setID(Integer.parseInt(textCodigo.getText()));
+        doadorBD.excluir(doador);
     }
 
     @FXML
@@ -141,15 +160,22 @@ public class CadastroPacienteController {
 
     }
 
-    public void initialize(URL location, ResourceBundle resources) throws SQLException {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         DoadorBD doadorBD;
         doadorBD = new DoadorBD();
         observableDoador = FXCollections.observableArrayList();
-        observableDoador = doadorBD.buscarTodosBD();
+        try {
+            observableDoador = doadorBD.buscarTodosBD();
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroPacienteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+//        tableColumnCod.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-        tableColumnLogin.setCellValueFactory(new PropertyValueFactory<>("loginDoador"));
+        tableColumnCod.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getID()).asObject());
+
         tableColumnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        tableColumnEmail.setCellValueFactory(new PropertyValueFactory<>("emailDoador"));
+        tableColumnRG.setCellValueFactory(new PropertyValueFactory<>("rg"));
         tableView.setItems(observableDoador);
     }
 

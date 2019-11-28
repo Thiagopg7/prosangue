@@ -37,9 +37,9 @@
             <Button fx:id="btnCancelar" layoutX="517.0" layoutY="324.0" mnemonicParsing="false" onAction="#cancelarCadastro" text="Cancelar" />
             <TableView fx:id="tableView" layoutX="628.0" layoutY="3.0" prefHeight="264.0" prefWidth="304.0">
                <columns>
-                  <TableColumn fx:id="tableColumnLogin" prefWidth="84.0" text="Login" />
-                  <TableColumn fx:id="tableColumnNome" prefWidth="122.0" text="Nome Completo" />
-                  <TableColumn fx:id="tableColumnEmail" prefWidth="97.0" sortType="DESCENDING" text="Email" />
+                  <TableColumn fx:id="tableColumnCod" prefWidth="84.0" text="Cód" />
+                  <TableColumn fx:id="tableColumnNome" prefWidth="122.0" text="Nome" />
+                  <TableColumn fx:id="tableColumnRG" prefWidth="97.0" sortType="DESCENDING" text="R.G." />
                </columns>
             </TableView>
             <Button fx:id="btnExcluir" layoutX="876.0" layoutY="324.0" mnemonicParsing="false" onAction="#excluirTabela" text="Excluir" />

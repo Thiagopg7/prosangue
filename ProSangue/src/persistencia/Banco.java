@@ -24,7 +24,7 @@ public class Banco {
         //System.out.println("Conectando ao banco...");
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/prosangue", "root", "civitas@123"); //Usuário: root - senha: civitas@123
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/prosangue", "root", ""); //Usuário: root - senha: civitas@123
 
             //System.out.println("Conectado.");
         } catch (ClassNotFoundException ex) {

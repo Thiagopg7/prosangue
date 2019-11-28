@@ -46,14 +46,13 @@ public class DoadorBD {
 
             conexao.conectar();
             Statement declaracao = conexao.con.createStatement();
-            declaracao.executeUpdate("INSERT INTO Doador (nome, endereco, data_nascimento, nome_pai, nome_mae, rg, ultima_doacao) " + "VALUES('"
+            declaracao.executeUpdate("INSERT INTO Doador (nome, endereco, data_nascimento, nome_pai, nome_mae, rg, sexo) " + "VALUES('"
                     + doador.getNome() + "','"
                     + doador.getEndereco() + "','"
                     + doador.getDataNascimento() + "','"
                     + doador.getPai() + "','"
                     + doador.getMae() + "','"
                     + doador.getRg() + "','"
-                    + doador.getUltimaDoacao() + "','"
                     + doador.getSexo() + "')");
             conexao.desconectar();
             JOptionPane.showMessageDialog(null, "Cadastro feito com sucesso."); //Mensagem de confirmação da operação
@@ -67,7 +66,7 @@ public class DoadorBD {
 
     public ObservableList<Doador> buscarTodosBD() throws SQLException {
         ObservableList<Doador> doadorList = FXCollections.observableArrayList();      
-;
+
         ResultSet consulta;
         conexao.conectar();
         Statement declaracao;
