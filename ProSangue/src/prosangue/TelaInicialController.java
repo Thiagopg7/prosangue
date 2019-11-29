@@ -52,6 +52,8 @@ public class TelaInicialController implements Initializable {
             stage.show();
         } catch (Exception e) {
             System.out.println("Não foi possível carregar a página");
+                        System.out.println(e);
+
         }
     }
 

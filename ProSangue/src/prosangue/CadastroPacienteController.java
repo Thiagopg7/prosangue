@@ -79,9 +79,36 @@ public class CadastroPacienteController implements Initializable {
     private TableColumn<Doador, Integer> tableColumnCod;
     @FXML
     private TableColumn<Doador, String> tableColumnRG;
+    @FXML
+    private RadioButton radioFeminino;
+    @FXML
+    private RadioButton radioMasculino;
 
     @FXML
     void alterarDoador(ActionEvent event) {
+        Doador doador;
+        DoadorBD doadorBD;
+        doador = new Doador();
+        doadorBD = new DoadorBD();
+
+        doador.setNome(textNome.getText());
+        LocalDate localDate = pickerNascimento.getValue();
+        Date dataNascimentoConvertida = Date.valueOf(localDate); // Magic happens here!
+        doador.setDataNascimento(dataNascimentoConvertida);
+        doador.setEndereco(textEndereco.getText());
+        doador.setID(Integer.parseInt(textCodigo.getText()));
+        doador.setMae(textMae.getText());
+        doador.setPai(textPai.getText());
+                doador.setRg(textRG.getText());
+
+        if (radioFeminino.isSelected()) {;;
+            doador.setSexo("Feminino");
+        }
+        if (radioMasculino.isSelected()) {
+            doador.setSexo("Masculino");
+        }
+        
+        doadorBD.alterar(doador);
 
     }
 
@@ -102,12 +129,12 @@ public class CadastroPacienteController implements Initializable {
         doador.setMae(textMae.getText());
         doador.setPai(textPai.getText());
         doador.setRg(textRG.getText());
-//        if (radioFeminino.isSelected()) {
-//            doador.setSexo("Feminino");
-//        }
-//        if (radioMasculino.isSelected()) {
-//            doador.setSexo("Masculino");
-//        }
+        if (radioFeminino.isSelected()) {;;
+            doador.setSexo("Feminino");
+        }
+        if (radioMasculino.isSelected()) {
+            doador.setSexo("Masculino");
+        }
 
         // doador.setUltimaDoacao(dataNascimento);
         doadorBD.cadastrar(doador);
@@ -172,11 +199,19 @@ public class CadastroPacienteController implements Initializable {
         }
 //        tableColumnCod.setCellValueFactory(new PropertyValueFactory<>("id"));
 
+        ToggleGroup toggleGroup = new ToggleGroup();;
+        radioFeminino.setToggleGroup(toggleGroup);
+        radioMasculino.setToggleGroup(toggleGroup);
+
         tableColumnCod.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getID()).asObject());
 
         tableColumnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         tableColumnRG.setCellValueFactory(new PropertyValueFactory<>("rg"));
         tableView.setItems(observableDoador);
+    }
+
+    @FXML
+    private void buscarDoador(ActionEvent event) {
     }
 
 }

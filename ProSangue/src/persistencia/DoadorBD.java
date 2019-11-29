@@ -126,16 +126,15 @@ public class DoadorBD {
             conexao.conectar();
             Statement declaracao;
             declaracao = conexao.con.createStatement();
-            declaracao.executeUpdate("UPDATE doador SET nome = "
-                    + doador.getNome()
-                    + ", data_nascimento =" + doador.getDataNascimento()
-                    + ", endereco =" + doador.getEndereco()
-                    + ", nome_pai =" + doador.getPai()
-                    + ", nome_mae =" + doador.getMae()
-                    + ", rg =" + doador.getRg()
-                    + ", ultima_doacao =" + doador.getUltimaDoacao()
-                    + ", sexo =" + doador.getSexo()
-                    + " WHERE id = " + doador.getID());
+            declaracao.executeUpdate("UPDATE doador SET nome = '" + doador.getNome()
+                    + "', data_nascimento ='" + doador.getDataNascimento()
+                    + "', endereco ='" + doador.getEndereco()
+                    + "', nome_pai ='" + doador.getPai()
+                    + "', nome_mae ='" + doador.getMae()
+                    + "', rg ='" + doador.getRg()
+                    + "', ultima_doacao =" + doador.getUltimaDoacao()
+                    + ", sexo ='" + doador.getSexo()
+                    + "' WHERE id = " + doador.getID());
             conexao.desconectar();
             JOptionPane.showMessageDialog(null, "Alteração da doador " + doador.getID() + " feita com sucesso."); //Mensagem de confirmação
 
