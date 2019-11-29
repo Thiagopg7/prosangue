@@ -99,7 +99,7 @@ public class CadastroPacienteController implements Initializable {
         doador.setID(Integer.parseInt(textCodigo.getText()));
         doador.setMae(textMae.getText());
         doador.setPai(textPai.getText());
-                doador.setRg(textRG.getText());
+        doador.setRg(textRG.getText());
 
         if (radioFeminino.isSelected()) {;;
             doador.setSexo("Feminino");
@@ -107,7 +107,7 @@ public class CadastroPacienteController implements Initializable {
         if (radioMasculino.isSelected()) {
             doador.setSexo("Masculino");
         }
-        
+
         doadorBD.alterar(doador);
 
     }
@@ -212,6 +212,28 @@ public class CadastroPacienteController implements Initializable {
 
     @FXML
     private void buscarDoador(ActionEvent event) {
+        Doador doador;
+        DoadorBD doadorBD;
+        doador = new Doador();
+        doadorBD = new DoadorBD();
+
+        int doadorID = (Integer.parseInt(textCodigo.getText()));
+        doador = doadorBD.buscarIndividualBD(doadorID);
+        textEndereco.setText(doador.getEndereco());
+        textNome.setText(doador.getNome());
+        textMae.setText(doador.getMae());
+        textPai.setText(doador.getPai());
+        textRG.setText(doador.getRg());
+        if (doador.getSexo().equals("Masculino")) {
+            radioMasculino.setSelected(true);
+        } else if (doador.getSexo().equals("Feminino")) {
+            radioFeminino.setSelected(true);
+        }
+        Date date = doador.getDataNascimento();
+        LocalDate localD = date.toLocalDate();
+        pickerNascimento.setValue(localD);
+
+        //pickerNascimento.set
     }
 
 }
