@@ -18,12 +18,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import objetos.Doador;
@@ -72,8 +75,6 @@ public class CadastroPacienteController implements Initializable {
     private ObservableList<Doador> observableDoador;
 
     @FXML
-    private Button btnInserir;
-    @FXML
     private TextField textEndereco;
     @FXML
     private TableColumn<Doador, Integer> tableColumnCod;
@@ -83,6 +84,8 @@ public class CadastroPacienteController implements Initializable {
     private RadioButton radioFeminino;
     @FXML
     private RadioButton radioMasculino;
+    @FXML
+    private MenuItem menuItemExcluir;
 
     @FXML
     void alterarDoador(ActionEvent event) {
@@ -109,6 +112,12 @@ public class CadastroPacienteController implements Initializable {
         }
 
         doadorBD.alterar(doador);
+        try {;
+            observableDoador = doadorBD.buscarTodosBD();
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroPacienteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tableView.setItems(observableDoador);
 
     }
 
@@ -139,6 +148,12 @@ public class CadastroPacienteController implements Initializable {
         // doador.setUltimaDoacao(dataNascimento);
         doadorBD.cadastrar(doador);
         observableDoador.add(doador);
+        try {
+            observableDoador = doadorBD.buscarTodosBD();
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroPacienteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tableView.setItems(observableDoador);
     }
 
     @FXML
@@ -156,34 +171,12 @@ public class CadastroPacienteController implements Initializable {
         doadorBD = new DoadorBD();
         doador.setID(Integer.parseInt(textCodigo.getText()));
         doadorBD.excluir(doador);
-    }
-
-    @FXML
-    private void excluirTabela(ActionEvent event) {
-        int i = tableView.getSelectionModel().getSelectedIndex();
-        observableDoador.remove(i);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-        alert.setTitle("Pedido Excluido");
-        alert.setHeaderText(null);
-        alert.setContentText("Pedido excluído com sucesso!");
-        alert.showAndWait();
-        tableView.refresh();
-    }
-
-    @FXML
-    private void alterarTabela(ActionEvent event) {
-    }
-
-    @FXML
-    private void inserirTabela(ActionEvent event) {
-        int i = 0;
-        // novodoador.buscarIndividualBD(list);
-        // novodoador.setLogin(/*login pego do banco*/);
-        // novodoador.setNome(/*nome pego do banco*/);
-        //novodoador.setEmail(/*email pego do banco*/);
-        Doador doador = new Doador();
-        observableDoador.add(doador);
+        try {
+            observableDoador = doadorBD.buscarTodosBD();
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroPacienteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tableView.setItems(observableDoador);
 
     }
 
@@ -206,8 +199,13 @@ public class CadastroPacienteController implements Initializable {
         tableColumnCod.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getID()).asObject());
 
         tableColumnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tableColumnNome.setCellFactory(TextFieldTableCell.forTableColumn());
+
         tableColumnRG.setCellValueFactory(new PropertyValueFactory<>("rg"));
+        tableColumnRG.setCellFactory(TextFieldTableCell.forTableColumn());
+
         tableView.setItems(observableDoador);
+
     }
 
     @FXML
@@ -234,6 +232,23 @@ public class CadastroPacienteController implements Initializable {
         pickerNascimento.setValue(localD);
 
         //pickerNascimento.set
+    }
+
+    @FXML
+    private void excluirDoadorTabela(ActionEvent event) {
+        DoadorBD doadorBD;
+        doadorBD = new DoadorBD();
+        Doador doador = tableView.getSelectionModel().getSelectedItem();
+
+        doador.setID(doador.getID());
+        doadorBD.excluir(doador);
+        try {
+            observableDoador = doadorBD.buscarTodosBD();
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroPacienteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tableView.setItems(observableDoador);
+        tableView.refresh();
     }
 
 }

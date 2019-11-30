@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
@@ -11,7 +15,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prosangue.CadastroPacienteController">
+<AnchorPane id="AnchorPane" prefHeight="374.0" prefWidth="956.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prosangue.CadastroPacienteController">
     <stylesheets>
         <URL value="@cadastropaciente.css" />
     </stylesheets>
@@ -32,20 +36,24 @@
             <TextField fx:id="textMae" layoutX="85.0" layoutY="209.0" prefHeight="26.0" prefWidth="509.0" />
             <TextField fx:id="textRG" layoutX="248.0" layoutY="22.0" prefHeight="25.0" prefWidth="331.0" />
             <Button fx:id="buscaDoador" layoutX="154.0" layoutY="22.0" mnemonicParsing="false" onAction="#buscarDoador" text="Busca" />
-            <Button fx:id="btnCadastrar" layoutX="25.0" layoutY="324.0" mnemonicParsing="false" onAction="#cadastrarDoador" text="Cadastrar" />
-            <Button fx:id="btnAlterar" layoutX="110.0" layoutY="324.0" mnemonicParsing="false" onAction="#alterarDoador" text="Alterar" />
-            <Button fx:id="btnExcluir" layoutX="175.0" layoutY="324.0" mnemonicParsing="false" onAction="#excluirDoador" text="Excluir" />
+            <Button fx:id="btnCadastrar" layoutX="85.0" layoutY="324.0" mnemonicParsing="false" onAction="#cadastrarDoador" text="Cadastrar" />
+            <Button fx:id="btnAlterar" layoutX="163.0" layoutY="324.0" mnemonicParsing="false" onAction="#alterarDoador" text="Alterar" />
+            <Button fx:id="btnExcluir" layoutX="227.0" layoutY="324.0" mnemonicParsing="false" onAction="#excluirDoador" text="Excluir" />
             <Button fx:id="btnCancelar" layoutX="517.0" layoutY="324.0" mnemonicParsing="false" onAction="#cancelarCadastro" text="Cancelar" />
-            <TableView fx:id="tableView" layoutX="628.0" layoutY="3.0" prefHeight="264.0" prefWidth="304.0">
+            <TableView fx:id="tableView" editable="true" layoutX="628.0" layoutY="3.0" prefHeight="347.0" prefWidth="304.0">
                <columns>
                   <TableColumn fx:id="tableColumnCod" prefWidth="84.0" text="Cód" />
                   <TableColumn fx:id="tableColumnNome" prefWidth="122.0" text="Nome" />
                   <TableColumn fx:id="tableColumnRG" prefWidth="97.0" sortType="DESCENDING" text="R.G." />
                </columns>
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem fx:id="menuItemExcluir" mnemonicParsing="false" onAction="#excluirDoadorTabela" text="Excluir" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
             </TableView>
-            <Button fx:id="btnExcluir" layoutX="876.0" layoutY="324.0" mnemonicParsing="false" onAction="#excluirTabela" text="Excluir" />
-            <Button fx:id="btnAlterar" layoutX="803.0" layoutY="324.0" mnemonicParsing="false" onAction="#alterarTabela" text="Alterar" />
-            <Button fx:id="btnInserir" layoutX="729.0" layoutY="324.0" mnemonicParsing="false" onAction="#inserirTabela" text="Inserir" />
             <Label layoutX="5.0" layoutY="258.0" text="Endereço:" />
             <TextField fx:id="textEndereco" layoutX="85.0" layoutY="254.0" prefHeight="26.0" prefWidth="509.0" />
             <RadioButton fx:id="radioMasculino" layoutX="408.0" layoutY="65.0" mnemonicParsing="false" text="Masculino" />
