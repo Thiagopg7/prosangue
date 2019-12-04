@@ -31,6 +31,8 @@ public class TelaInicialController implements Initializable {
     private Button btnPesquisar;
     @FXML
     private MenuItem menuItemCadastroDoador;
+    @FXML
+    private MenuItem menuItemRelatorios;
 
     /**
      * Initializes the controller class.
@@ -38,21 +40,20 @@ public class TelaInicialController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void abreTelaCadastroDoador(ActionEvent event) {
-                try {
+        try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CadastroPaciente.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            
-            
+
             stage.show();
         } catch (Exception e) {
             System.out.println("Não foi possível carregar a página");
-                        System.out.println(e);
+            System.out.println(e);
 
         }
     }
@@ -60,5 +61,21 @@ public class TelaInicialController implements Initializable {
     @FXML
     private void pesquisarDoador(ActionEvent event) {
     }
-    
+
+    @FXML
+    private void abreTelaRelatorios(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("RegistroDoacao.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+
+            stage.show();
+        } catch (Exception e) {
+            System.out.println("Não foi possível carregar a página");
+            System.out.println(e);
+
+        }
+    }
+
 }
