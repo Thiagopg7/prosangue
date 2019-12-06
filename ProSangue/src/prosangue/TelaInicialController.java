@@ -33,6 +33,8 @@ public class TelaInicialController implements Initializable {
     private MenuItem menuItemCadastroDoador;
     @FXML
     private MenuItem menuItemRelatorios;
+    @FXML
+    private MenuItem menuItemRegistroDoacao;
 
     /**
      * Initializes the controller class.
@@ -60,16 +62,21 @@ public class TelaInicialController implements Initializable {
 
     @FXML
     private void pesquisarDoador(ActionEvent event) {
+
     }
 
     @FXML
     private void abreTelaRelatorios(ActionEvent event) {
+
+    }
+
+    @FXML
+    private void abreTelaRegistroDoacao(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("RegistroDoacao.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-
             stage.show();
         } catch (Exception e) {
             System.out.println("Não foi possível carregar a página");

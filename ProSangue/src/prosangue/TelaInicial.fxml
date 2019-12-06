@@ -21,6 +21,7 @@
                   <Menu mnemonicParsing="false" text="Cadastro">
                      <items>
                         <MenuItem fx:id="menuItemCadastroDoador" mnemonicParsing="false" onAction="#abreTelaCadastroDoador" text="Pacientes" />
+                        <MenuItem fx:id="menuItemRegistroDoacao" mnemonicParsing="false" onAction="#abreTelaRegistroDoacao" text="Doação" />
                      </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Relatórios">
