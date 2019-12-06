@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="prosangue.RegistroDoacaoController">
+<AnchorPane id="AnchorPane" prefHeight="323.0" prefWidth="451.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="prosangue.RegistroDoacaoController">
    <children>
-      <Pane layoutX="-6.0" prefHeight="372.0" prefWidth="616.0" />
+      <Pane layoutX="-6.0" prefHeight="325.0" prefWidth="457.0">
+         <children>
+            <Label layoutX="39.0" layoutY="29.0" text="Código:" />
+            <TextField fx:id="textCodigo" layoutX="91.0" layoutY="25.0" prefHeight="25.0" prefWidth="66.0" />
+            <Button fx:id="buscaDoador" layoutX="174.0" layoutY="25.0" mnemonicParsing="false" onAction="#buscarDoador" text="Busca" />
+            <CheckBox fx:id="checkHepatiteB" layoutX="33.0" layoutY="94.0" mnemonicParsing="false" text="HepatiteB" />
+            <CheckBox fx:id="checkHepatiteC" layoutX="139.0" layoutY="94.0" mnemonicParsing="false" text="HepatiteC" />
+            <CheckBox fx:id="checkChagas" layoutX="250.0" layoutY="94.0" mnemonicParsing="false" text="Chagas" />
+            <CheckBox fx:id="checkSifilis" layoutX="340.0" layoutY="94.0" mnemonicParsing="false" prefWidth="150.0" text="Sifilis" />
+            <CheckBox fx:id="checkAids" layoutX="33.0" layoutY="151.0" mnemonicParsing="false" text="Aids" />
+            <CheckBox fx:id="checkHtlv" layoutX="139.0" layoutY="151.0" mnemonicParsing="false" text="Htlv" />
+            <CheckBox fx:id="checkAnemia" layoutX="250.0" layoutY="151.0" mnemonicParsing="false" text="Anemia" />
+            <CheckBox fx:id="checkTriagemClinica" layoutX="340.0" layoutY="151.0" mnemonicParsing="false" text="Trigaem Clinica" />
+            <Button fx:id="btnCadastrarDoacao" layoutX="62.0" layoutY="276.0" mnemonicParsing="false" text="Cadastrar" />
+            <Button fx:id="btnAlterarDoacao" layoutX="192.0" layoutY="276.0" mnemonicParsing="false" text="Alterar" />
+            <Button fx:id="btnEnviarNotificacao" layoutX="299.0" layoutY="276.0" mnemonicParsing="false" text="Enviar Notificação" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
