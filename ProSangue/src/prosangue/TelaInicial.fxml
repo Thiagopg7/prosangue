@@ -13,42 +13,43 @@
 <?import javafx.scene.layout.RowConstraints?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prosangue.TelaInicialController">
-   <children>
-      <BorderPane prefHeight="420.0" prefWidth="620.0">
-         <top>
-            <MenuBar prefHeight="3.0" prefWidth="598.0" BorderPane.alignment="CENTER">
-               <menus>
-                  <Menu mnemonicParsing="false" text="Cadastro">
-                     <items>
-                        <MenuItem fx:id="menuItemCadastroDoador" mnemonicParsing="false" onAction="#abreTelaCadastroDoador" text="Pacientes" />
-                        <MenuItem fx:id="menuItemRegistroDoacao" mnemonicParsing="false" onAction="#abreTelaRegistroDoacao" text="Doação" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Relatórios">
-                     <items>
-                        <MenuItem fx:id="menuItemRelatorios" mnemonicParsing="false" onAction="#abreTelaRelatorios" text="Gráficos" />
-                     </items>
-                  </Menu>
-               </menus>
-            </MenuBar>
-         </top>
-         <center>
-            <GridPane prefHeight="395.0" prefWidth="579.0" BorderPane.alignment="CENTER">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="10.0" prefWidth="146.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="589.0" minWidth="10.0" prefWidth="339.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="589.0" minWidth="10.0" prefWidth="76.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="385.0" minHeight="0.0" prefHeight="107.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="147.0" text="Código do Paciente" />
-                  <TextField fx:id="textCodPaciente" GridPane.columnIndex="1" />
-                  <Button fx:id="btnPesquisar" mnemonicParsing="false" onAction="#pesquisarDoador" prefHeight="25.0" prefWidth="84.0" text="Pesquisar" GridPane.columnIndex="2" />
-               </children>
-            </GridPane>
-         </center>
-      </BorderPane>
-   </children>
+
+    <children>
+        <BorderPane prefHeight="420.0" prefWidth="620.0">
+            <top>
+                <MenuBar prefHeight="3.0" prefWidth="598.0" BorderPane.alignment="CENTER">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="Cadastro">
+                            <items>
+                                <MenuItem fx:id="menuItemCadastroDoador" mnemonicParsing="false" onAction="#abreTelaCadastroDoador" text="Pacientes" />
+                                <MenuItem fx:id="menuItemRegistroDoacao" mnemonicParsing="false" onAction="#abreTelaRegistroDoacao" text="Doação" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Relatórios">
+                            <items>
+                                <MenuItem fx:id="menuItemRelatorios" mnemonicParsing="false" onAction="#abreTelaRelatorios" text="Gráficos" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+            </top>
+            <center>
+                <GridPane prefHeight="395.0" prefWidth="579.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="10.0" prefWidth="146.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="589.0" minWidth="10.0" prefWidth="339.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="589.0" minWidth="10.0" prefWidth="76.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="385.0" minHeight="0.0" prefHeight="107.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="147.0" text="Código do Paciente" />
+                        <TextField fx:id="textCodPaciente" GridPane.columnIndex="1" />
+                        <Button fx:id="btnPesquisar" mnemonicParsing="false" onAction="#pesquisarDoador" prefHeight="25.0" prefWidth="84.0" text="Pesquisar" GridPane.columnIndex="2" />
+                    </children>
+                </GridPane>
+            </center>
+        </BorderPane>
+    </children>
 </AnchorPane>

@@ -3,9 +3,11 @@
  */
 
 .mainFxmlClass {
-    -fx-background-image: url(imagens/fundo1.jpg);
 }
 .button {
     -fx-font-weight: bold;
 }
 
+.root {
+    -fx-background-image: url("imagens/fundo0.jpg");
+}
