@@ -24,7 +24,6 @@ public class Doacao {
     private boolean testeAnemia;
     private boolean triagemClinica;
     private Timestamp horario;
-    private String imunohematologia;
 
     public int getId() {
         return id;
@@ -113,13 +112,4 @@ public class Doacao {
     public void setHorario(Timestamp horario) {
         this.horario = horario;
     }
-
-    public String getImunohematologia() {
-        return imunohematologia;
-    }
-
-    public void setImunohematologia(String imunohematologia) {
-        this.imunohematologia = imunohematologia;
-    }
-
 }

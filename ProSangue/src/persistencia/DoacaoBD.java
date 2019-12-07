@@ -40,8 +40,7 @@ public class DoacaoBD {
                     + doacao.isHtlv() + "','"
                     + doacao.isTesteAnemia() + "','"
                     + doacao.isTriagemClinica() + "','"
-                    + doacao.getHorario() + "','"
-                    + doacao.getImunohematologia() + "')");
+                    + doacao.getHorario() + "')");
             conexao.desconectar();
             JOptionPane.showMessageDialog(null, "Cadastro feito com sucesso."); //Mensagem de confirmação da operação
 
@@ -69,7 +68,6 @@ public class DoacaoBD {
                 doacao.setHorario(consulta.getTimestamp("horario"));
                 doacao.setHtlv(consulta.getBoolean("htlv"));
                 doacao.setId(consulta.getInt("id"));
-                doacao.setImunohematologia(consulta.getString("imunohematologia"));
                 doacao.setSifilis(consulta.getBoolean("sifilis"));
                 doacao.setTesteAnemia(consulta.getBoolean("teste_anemia"));
                 doacao.setTriagemClinica(consulta.getBoolean("triagem_clinica"));
@@ -98,7 +96,6 @@ public class DoacaoBD {
                 doacao.setHorario(consulta.getTimestamp("horario"));
                 doacao.setHtlv(consulta.getBoolean("htlv"));
                 doacao.setId(consulta.getInt("id"));
-                doacao.setImunohematologia(consulta.getString("imunohematologia"));
                 doacao.setSifilis(consulta.getBoolean("sifilis"));
                 doacao.setTesteAnemia(consulta.getBoolean("teste_anemia"));
                 doacao.setTriagemClinica(consulta.getBoolean("triagem_clinica"));
@@ -124,7 +121,6 @@ public class DoacaoBD {
                     + ", hepatite_c =" + doacao.isHepatiteC()
                     + ", horario =" + doacao.getHorario()
                     + ", htlv =" + doacao.isHtlv()
-                    + ", imunohematologia =" + doacao.getImunohematologia()
                     + ", sifilis =" + doacao.isSifilis()
                     + ", teste_anemia =" + doacao.isTesteAnemia()
                     + ", triagem_clinica =" + doacao.isTriagemClinica()

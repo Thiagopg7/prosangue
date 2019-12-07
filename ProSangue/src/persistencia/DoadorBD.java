@@ -40,19 +40,20 @@ public class DoadorBD {
 //    private boolean triagemClinica;
 //    private Timestamp horario;
 //    private String imunohematologia;
-    
+
     public void cadastrar(Doador doador) {
         try {
 
             conexao.conectar();
             Statement declaracao = conexao.con.createStatement();
-            declaracao.executeUpdate("INSERT INTO Doador (nome, endereco, data_nascimento, nome_pai, nome_mae, rg, sexo) " + "VALUES('"
+            declaracao.executeUpdate("INSERT INTO Doador (nome, endereco, data_nascimento, nome_pai, nome_mae, rg, tipo_sangue, sexo) " + "VALUES('"
                     + doador.getNome() + "','"
                     + doador.getEndereco() + "','"
                     + doador.getDataNascimento() + "','"
                     + doador.getPai() + "','"
                     + doador.getMae() + "','"
                     + doador.getRg() + "','"
+                    + doador.getTipoSangue() + "','"
                     + doador.getSexo() + "')");
             conexao.desconectar();
             JOptionPane.showMessageDialog(null, "Cadastro feito com sucesso."); //Mensagem de confirmação da operação
@@ -65,7 +66,7 @@ public class DoadorBD {
     }
 
     public ObservableList<Doador> buscarTodosBD() throws SQLException {
-        ObservableList<Doador> doadorList = FXCollections.observableArrayList();      
+        ObservableList<Doador> doadorList = FXCollections.observableArrayList();
 
         ResultSet consulta;
         conexao.conectar();
@@ -82,6 +83,7 @@ public class DoadorBD {
                 doador.setPai(consulta.getString("nome_pai"));
                 doador.setMae(consulta.getString("nome_mae"));
                 doador.setRg(consulta.getString("rg"));
+                doador.setTipoSangue(consulta.getString("tipo_sangue"));
                 doador.setUltimaDoacao(consulta.getTimestamp("ultima_doacao"));
                 doador.setSexo(consulta.getString("sexo"));
                 doadorList.add(doador);
@@ -109,6 +111,7 @@ public class DoadorBD {
                 doador.setPai(consulta.getString("nome_pai"));
                 doador.setMae(consulta.getString("nome_mae"));
                 doador.setRg(consulta.getString("rg"));
+                doador.setTipoSangue(consulta.getString("tipo_sangue"));
                 doador.setUltimaDoacao(consulta.getTimestamp("ultima_doacao"));
                 doador.setSexo(consulta.getString("sexo"));
             }
@@ -133,6 +136,7 @@ public class DoadorBD {
                     + "', nome_mae ='" + doador.getMae()
                     + "', rg ='" + doador.getRg()
                     + "', ultima_doacao =" + doador.getUltimaDoacao()
+                    + "', tipo_sangue ='" + doador.getTipoSangue()
                     + ", sexo ='" + doador.getSexo()
                     + "' WHERE id = " + doador.getID());
             conexao.desconectar();

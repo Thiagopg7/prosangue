@@ -17,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
@@ -86,6 +87,8 @@ public class CadastroPacienteController implements Initializable {
     private RadioButton radioMasculino;
     @FXML
     private MenuItem menuItemExcluir;
+    @FXML
+    private ComboBox<String> comboSangue;
 
     @FXML
     void alterarDoador(ActionEvent event) {
@@ -185,6 +188,10 @@ public class CadastroPacienteController implements Initializable {
         DoadorBD doadorBD;
         doadorBD = new DoadorBD();
         observableDoador = FXCollections.observableArrayList();
+        //  comboSangue.getItems().removeAll(comboSangue.getItems());
+
+        comboSangue.setItems(FXCollections.observableArrayList("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"));
+
         try {
             observableDoador = doadorBD.buscarTodosBD();
         } catch (SQLException ex) {

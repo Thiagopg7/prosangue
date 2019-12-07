@@ -23,6 +23,24 @@ public class Doador {
     private String rg;
     private Timestamp ultimaDoacao;
     private String sexo;
+        private String tipoSangue;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTipoSangue() {
+        return tipoSangue;
+    }
+
+    public void setTipoSangue(String tipoSangue) {
+        this.tipoSangue = tipoSangue;
+    }
+
 
     public int getID() {
         return id;
