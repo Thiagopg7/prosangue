@@ -22,7 +22,6 @@ public class ProSangue extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("TelaInicial.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().addAll(this.getClass().getResource("telainicial.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
