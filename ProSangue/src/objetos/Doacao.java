@@ -15,14 +15,14 @@ public class Doacao {
 
     private int id;
     private int fkDoador;
-    private boolean hepatiteB;
-    private boolean hepatiteC;
-    private boolean chagas;
-    private boolean sifilis;
-    private boolean aids;
-    private boolean htlv;
-    private boolean testeAnemia;
-    private boolean triagemClinica;
+    private int hepatiteB;
+    private int hepatiteC;
+    private int chagas;
+    private int sifilis;
+    private int aids;
+    private int htlv;
+    private int testeAnemia;
+    private int triagemClinica;
     private Timestamp horario;
 
     public int getId() {
@@ -41,68 +41,68 @@ public class Doacao {
         this.fkDoador = fkDoador;
     }
 
-    public boolean isHepatiteB() {
+    public int getHepatiteB() {
         return hepatiteB;
     }
 
-    public void setHepatiteB(boolean hepatiteB) {
+    public void setHepatiteB(int hepatiteB) {
         this.hepatiteB = hepatiteB;
     }
 
-    public boolean isHepatiteC() {
+    public int getHepatiteC() {
         return hepatiteC;
     }
 
-    public void setHepatiteC(boolean hepatiteC) {
+    public void setHepatiteC(int hepatiteC) {
         this.hepatiteC = hepatiteC;
     }
 
-    public boolean isChagas() {
+    public int getChagas() {
         return chagas;
     }
 
-    public void setChagas(boolean chagas) {
+    public void setChagas(int chagas) {
         this.chagas = chagas;
     }
 
-    public boolean isSifilis() {
+    public int getSifilis() {
         return sifilis;
     }
 
-    public void setSifilis(boolean sifilis) {
+    public void setSifilis(int sifilis) {
         this.sifilis = sifilis;
     }
 
-    public boolean isAids() {
+    public int getAids() {
         return aids;
     }
 
-    public void setAids(boolean aids) {
+    public void setAids(int aids) {
         this.aids = aids;
     }
 
-    public boolean isHtlv() {
+    public int getHtlv() {
         return htlv;
     }
 
-    public void setHtlv(boolean htlv) {
+    public void setHtlv(int htlv) {
         this.htlv = htlv;
     }
 
-    public boolean isTesteAnemia() {
+    public int getTesteAnemia() {
         return testeAnemia;
     }
 
-    public void setTesteAnemia(boolean teste_anemia) {
-        this.testeAnemia = teste_anemia;
+    public void setTesteAnemia(int testeAnemia) {
+        this.testeAnemia = testeAnemia;
     }
 
-    public boolean isTriagemClinica() {
+    public int getTriagemClinica() {
         return triagemClinica;
     }
 
-    public void setTriagemClinica(boolean triagem_clinica) {
-        this.triagemClinica = triagem_clinica;
+    public void setTriagemClinica(int triagemClinica) {
+        this.triagemClinica = triagemClinica;
     }
 
     public Timestamp getHorario() {
@@ -112,4 +112,5 @@ public class Doacao {
     public void setHorario(Timestamp horario) {
         this.horario = horario;
     }
+
 }

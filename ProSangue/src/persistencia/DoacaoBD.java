@@ -31,15 +31,17 @@ public class DoacaoBD {
 
             conexao.conectar();
             Statement declaracao = conexao.con.createStatement();
-            declaracao.executeUpdate("INSERT INTO Doacao (fk_doador_id, hepatite_b, hepatite_c, sifilis, aids, htlv, teste_anemia, triagem_clinica, horario, imunohematologia) " + "VALUES('"
-                    + doacao.getFkDoador() + "','"
-                    + doacao.isHepatiteB() + "','"
-                    + doacao.isHepatiteC() + "','"
-                    + doacao.isSifilis() + "','"
-                    + doacao.isAids() + "','"
-                    + doacao.isHtlv() + "','"
-                    + doacao.isTesteAnemia() + "','"
-                    + doacao.isTriagemClinica() + "','"
+            declaracao.executeUpdate("INSERT INTO Doacao (fk_doador_id, chagas, hepatite_b, hepatite_c, sifilis, aids, htlv, teste_anemia, triagem_clinica, horario) "
+                    + "VALUES("
+                    + doacao.getFkDoador() + ",'"
+                    + doacao.getChagas() + "','"
+                    + doacao.getHepatiteB() + "','"
+                    + doacao.getHepatiteC() + "','"
+                    + doacao.getSifilis() + "','"
+                    + doacao.getAids() + "','"
+                    + doacao.getHtlv() + "','"
+                    + doacao.getTesteAnemia() + "','"
+                    + doacao.getTriagemClinica() + "','"
                     + doacao.getHorario() + "')");
             conexao.desconectar();
             JOptionPane.showMessageDialog(null, "Cadastro feito com sucesso."); //Mensagem de confirmação da operação
@@ -61,16 +63,16 @@ public class DoacaoBD {
             consulta = declaracao.executeQuery("SELECT * FROM Doacao");
             while (consulta.next()) {
                 Doacao doacao = new Doacao();
-                doacao.setChagas(consulta.getBoolean("chagas"));
+                doacao.setChagas(consulta.getInt("chagas"));
                 doacao.setFkDoador(consulta.getInt("fk_doador_id"));
-                doacao.setHepatiteB(consulta.getBoolean("hepatite_b"));
-                doacao.setHepatiteC(consulta.getBoolean("hepatite_c"));
+                doacao.setHepatiteB(consulta.getInt("hepatite_b"));
+                doacao.setHepatiteC(consulta.getInt("hepatite_c"));
                 doacao.setHorario(consulta.getTimestamp("horario"));
-                doacao.setHtlv(consulta.getBoolean("htlv"));
+                doacao.setHtlv(consulta.getInt("htlv"));
                 doacao.setId(consulta.getInt("id"));
-                doacao.setSifilis(consulta.getBoolean("sifilis"));
-                doacao.setTesteAnemia(consulta.getBoolean("teste_anemia"));
-                doacao.setTriagemClinica(consulta.getBoolean("triagem_clinica"));
+                doacao.setSifilis(consulta.getInt("sifilis"));
+                doacao.setTesteAnemia(consulta.getInt("teste_anemia"));
+                doacao.setTriagemClinica(consulta.getInt("triagem_clinica"));
                 doacaoList.add(doacao);
             }
             conexao.desconectar();
@@ -89,16 +91,16 @@ public class DoacaoBD {
             Statement declaracao = conexao.con.createStatement();
             consulta = declaracao.executeQuery("SELECT * FROM Doacao WHERE id =" + ID);
             while (consulta.next()) {
-                doacao.setChagas(consulta.getBoolean("chagas"));
+                doacao.setChagas(consulta.getInt("chagas"));
                 doacao.setFkDoador(consulta.getInt("fk_doador_id"));
-                doacao.setHepatiteB(consulta.getBoolean("hepatite_b"));
-                doacao.setHepatiteC(consulta.getBoolean("hepatite_c"));
+                doacao.setHepatiteB(consulta.getInt("hepatite_b"));
+                doacao.setHepatiteC(consulta.getInt("hepatite_c"));
                 doacao.setHorario(consulta.getTimestamp("horario"));
-                doacao.setHtlv(consulta.getBoolean("htlv"));
+                doacao.setHtlv(consulta.getInt("htlv"));
                 doacao.setId(consulta.getInt("id"));
-                doacao.setSifilis(consulta.getBoolean("sifilis"));
-                doacao.setTesteAnemia(consulta.getBoolean("teste_anemia"));
-                doacao.setTriagemClinica(consulta.getBoolean("triagem_clinica"));
+                doacao.setSifilis(consulta.getInt("sifilis"));
+                doacao.setTesteAnemia(consulta.getInt("teste_anemia"));
+                doacao.setTriagemClinica(consulta.getInt("triagem_clinica"));
             }
             //System.out.println("Resultado da busca - IDDoacao:" + doacao.getID() + ". Lugares:" + doacao.getLugares() + ". Ocupada:" + doacao.getOcupada());
             conexao.desconectar();
@@ -116,14 +118,14 @@ public class DoacaoBD {
             declaracao = conexao.con.createStatement();
             declaracao.executeUpdate("UPDATE doacao SET "
                     + "fk_doador_id = " + doacao.getFkDoador()
-                    + ", chagas  =" + doacao.isChagas()
-                    + ", hepatite_b =" + doacao.isHepatiteB()
-                    + ", hepatite_c =" + doacao.isHepatiteC()
+                    + ", chagas  =" + doacao.getChagas()
+                    + ", hepatite_b =" + doacao.getHepatiteB()
+                    + ", hepatite_c =" + doacao.getHepatiteC()
                     + ", horario =" + doacao.getHorario()
-                    + ", htlv =" + doacao.isHtlv()
-                    + ", sifilis =" + doacao.isSifilis()
-                    + ", teste_anemia =" + doacao.isTesteAnemia()
-                    + ", triagem_clinica =" + doacao.isTriagemClinica()
+                    + ", htlv =" + doacao.getHtlv()
+                    + ", sifilis =" + doacao.getSifilis()
+                    + ", teste_anemia =" + doacao.getTesteAnemia()
+                    + ", triagem_clinica =" + doacao.getTriagemClinica()
                     + " WHERE id = " + doacao.getId());
             conexao.desconectar();
             JOptionPane.showMessageDialog(null, "Alteração da doação " + doacao.getId() + " feita com sucesso."); //Mensagem de confirmação

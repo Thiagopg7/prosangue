@@ -1,0 +1,23 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+
+
+.chart {
+    -fx-background-color: lightblue;
+    -fx-legend-side: right;
+    -fx-title-side: top;
+    -fx-alignment: center;
+
+}
+
+.chart-title {
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 20pt;
+}
+
+.chart-legend {
+    -fx-font-family: "Courier New";
+    -fx-font-size: 14pt;
+}

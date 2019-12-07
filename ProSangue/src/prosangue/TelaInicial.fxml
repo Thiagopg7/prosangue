@@ -27,7 +27,7 @@
                         </Menu>
                         <Menu mnemonicParsing="false" text="Relatórios">
                             <items>
-                                <MenuItem fx:id="menuItemRelatorios" mnemonicParsing="false" onAction="#abreTelaRelatorios" text="Gráficos" />
+                                <MenuItem fx:id="menuItemGraficos" mnemonicParsing="false" onAction="#abreTelaGraficos" text="Gráficos" />
                             </items>
                         </Menu>
                     </menus>

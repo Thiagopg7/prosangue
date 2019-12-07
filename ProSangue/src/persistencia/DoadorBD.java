@@ -136,8 +136,8 @@ public class DoadorBD {
                     + "', nome_mae ='" + doador.getMae()
                     + "', rg ='" + doador.getRg()
                     + "', ultima_doacao =" + doador.getUltimaDoacao()
-                    + "', tipo_sangue ='" + doador.getTipoSangue()
-                    + ", sexo ='" + doador.getSexo()
+                    + ", tipo_sangue ='" + doador.getTipoSangue()
+                    + "', sexo ='" + doador.getSexo()
                     + "' WHERE id = " + doador.getID());
             conexao.desconectar();
             JOptionPane.showMessageDialog(null, "Alteração da doador " + doador.getID() + " feita com sucesso."); //Mensagem de confirmação

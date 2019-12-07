@@ -80,8 +80,6 @@ public class CadastroPacienteController implements Initializable {
     @FXML
     private TableColumn<Doador, Integer> tableColumnCod;
     @FXML
-    private TableColumn<Doador, String> tableColumnRG;
-    @FXML
     private RadioButton radioFeminino;
     @FXML
     private RadioButton radioMasculino;
@@ -89,6 +87,8 @@ public class CadastroPacienteController implements Initializable {
     private MenuItem menuItemExcluir;
     @FXML
     private ComboBox<String> comboSangue;
+    @FXML
+    private TableColumn<Doador, String> tableColumnTipo;
 
     @FXML
     void alterarDoador(ActionEvent event) {
@@ -106,6 +106,7 @@ public class CadastroPacienteController implements Initializable {
         doador.setMae(textMae.getText());
         doador.setPai(textPai.getText());
         doador.setRg(textRG.getText());
+        doador.setTipoSangue(comboSangue.getValue());
 
         if (radioFeminino.isSelected()) {;;
             doador.setSexo("Feminino");
@@ -141,6 +142,8 @@ public class CadastroPacienteController implements Initializable {
         doador.setMae(textMae.getText());
         doador.setPai(textPai.getText());
         doador.setRg(textRG.getText());
+                doador.setTipoSangue(comboSangue.getValue());
+
         if (radioFeminino.isSelected()) {;;
             doador.setSexo("Feminino");
         }
@@ -208,8 +211,8 @@ public class CadastroPacienteController implements Initializable {
         tableColumnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         tableColumnNome.setCellFactory(TextFieldTableCell.forTableColumn());
 
-        tableColumnRG.setCellValueFactory(new PropertyValueFactory<>("rg"));
-        tableColumnRG.setCellFactory(TextFieldTableCell.forTableColumn());
+        tableColumnTipo.setCellValueFactory(new PropertyValueFactory<>("tipoSangue"));
+        tableColumnTipo.setCellFactory(TextFieldTableCell.forTableColumn());
 
         tableView.setItems(observableDoador);
 
@@ -229,6 +232,8 @@ public class CadastroPacienteController implements Initializable {
         textMae.setText(doador.getMae());
         textPai.setText(doador.getPai());
         textRG.setText(doador.getRg());
+                comboSangue.setValue(doador.getTipoSangue());
+
         if (doador.getSexo().equals("Masculino")) {
             radioMasculino.setSelected(true);
         } else if (doador.getSexo().equals("Feminino")) {

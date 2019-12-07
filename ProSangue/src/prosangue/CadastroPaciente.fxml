@@ -46,7 +46,7 @@
                <columns>
                   <TableColumn fx:id="tableColumnCod" prefWidth="84.0" text="Cód" />
                   <TableColumn fx:id="tableColumnNome" prefWidth="122.0" text="Nome" />
-                  <TableColumn fx:id="tableColumnRG" prefWidth="97.0" sortType="DESCENDING" text="R.G." />
+                  <TableColumn fx:id="tableColumnTipo" prefWidth="97.0" sortType="DESCENDING" text="Tipo" />
                </columns>
                <contextMenu>
                   <ContextMenu>

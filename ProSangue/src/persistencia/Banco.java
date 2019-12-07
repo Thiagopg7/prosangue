@@ -42,7 +42,7 @@ public class Banco {
         con.close();
     }
 
-    public boolean executarArquivoSQL(String arquivoSql) throws SQLException {
+    public static void executarArquivoSQL() throws SQLException {
         boolean resultado = false;
         Statement declaracao = null;
         Banco.conectar();
@@ -62,12 +62,13 @@ public class Banco {
         while (arquivoSQL.hasNext()) {
             try {
                 String comando = arquivoSQL.next();
+                System.out.println(comando);
                 declaracao.execute(comando);
                 resultado = true;
             } catch (SQLException ex) {
                 Logger.getLogger(Banco.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return resultado;
+        //return resultado;
     }
 }
