@@ -7,13 +7,8 @@
 .button {
     -fx-font-weight: bold;
     -fx-font-family: "Segoe UI Semibold";
-    -fx-font-size: 10pt;
+    
 }
-
 .root {
-    -fx-background-image: url("imagens/fundo0.jpg");
-}
-
-.text-field {
-    -fx-font-size: 10pt;
+    -fx-background-image: url("imagens/fundo1.jpg");
 }
