@@ -27,7 +27,7 @@
             <Label layoutX="28.0" layoutY="213.0" text="Mãe:" />
             <Label layoutX="355.0" layoutY="71.0" text="Sexo:" />
             <Label layoutX="23.0" layoutY="71.0" text="Data de Nascimento:" />
-            <TextField fx:id="textCodigo" layoutX="70.0" layoutY="22.0" prefHeight="25.0" prefWidth="55.0" />
+            <TextField fx:id="textCodigo" layoutX="70.0" layoutY="22.0" onKeyPressed="#buscarDoadorKeyPressed" prefHeight="25.0" prefWidth="55.0" />
             <TextField fx:id="textRG" layoutX="240.0" layoutY="22.0" prefHeight="25.0" prefWidth="117.0" />
             <DatePicker fx:id="pickerNascimento" layoutX="155.0" layoutY="67.0" prefHeight="25.0" prefWidth="170.0" />
             <RadioButton fx:id="radioMasculino" layoutX="408.0" layoutY="65.0" mnemonicParsing="false" text="Masculino" />
@@ -37,7 +37,7 @@
             <Label layoutX="215.0" layoutY="26.0" text="R.G.:" />
             <TextField fx:id="textMae" layoutX="85.0" layoutY="209.0" prefHeight="26.0" prefWidth="509.0" />
             <TextField fx:id="textEndereco" layoutX="85.0" layoutY="254.0" prefHeight="26.0" prefWidth="509.0" />
-            <Button fx:id="buscaDoador" layoutX="139.0" layoutY="22.0" mnemonicParsing="false" onAction="#buscarDoador" text="Busca" />
+            <Button fx:id="buscaDoador" layoutX="139.0" layoutY="22.0" mnemonicParsing="false" onAction="#buscarDoador" onKeyPressed="#buscarDoadorKeyPressed" text="Busca" />
             <Button fx:id="btnCadastrar" layoutX="85.0" layoutY="324.0" mnemonicParsing="false" onAction="#cadastrarDoador" text="Cadastrar" />
             <Button fx:id="btnAlterar" layoutX="163.0" layoutY="324.0" mnemonicParsing="false" onAction="#alterarDoador" text="Alterar" />
             <Button fx:id="btnExcluir" layoutX="227.0" layoutY="324.0" mnemonicParsing="false" onAction="#excluirDoador" text="Excluir" />

@@ -28,6 +28,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import objetos.Doador;
@@ -142,7 +143,7 @@ public class CadastroPacienteController implements Initializable {
         doador.setMae(textMae.getText());
         doador.setPai(textPai.getText());
         doador.setRg(textRG.getText());
-                doador.setTipoSangue(comboSangue.getValue());
+        doador.setTipoSangue(comboSangue.getValue());
 
         if (radioFeminino.isSelected()) {;;
             doador.setSexo("Feminino");
@@ -160,8 +161,7 @@ public class CadastroPacienteController implements Initializable {
             Logger.getLogger(CadastroPacienteController.class.getName()).log(Level.SEVERE, null, ex);
         }
         tableView.setItems(observableDoador);
-        
-        
+
     }
 
     @FXML
@@ -211,10 +211,10 @@ public class CadastroPacienteController implements Initializable {
         tableColumnCod.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getID()).asObject());
 
         tableColumnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        tableColumnNome.setCellFactory(TextFieldTableCell.forTableColumn());
+        // tableColumnNome.setCellFactory(TextFieldTableCell.forTableColumn());
 
         tableColumnTipo.setCellValueFactory(new PropertyValueFactory<>("tipoSangue"));
-        tableColumnTipo.setCellFactory(TextFieldTableCell.forTableColumn());
+        // tableColumnTipo.setCellFactory(TextFieldTableCell.forTableColumn());
 
         tableView.setItems(observableDoador);
 
@@ -234,7 +234,7 @@ public class CadastroPacienteController implements Initializable {
         textMae.setText(doador.getMae());
         textPai.setText(doador.getPai());
         textRG.setText(doador.getRg());
-                comboSangue.setValue(doador.getTipoSangue());
+        comboSangue.setValue(doador.getTipoSangue());
 
         if (doador.getSexo().equals("Masculino")) {
             radioMasculino.setSelected(true);
@@ -265,4 +265,33 @@ public class CadastroPacienteController implements Initializable {
         tableView.refresh();
     }
 
+    @FXML
+    private void buscarDoadorKeyPressed(KeyEvent event) {
+
+        if (event.getCode().toString().equals("ENTER")) {
+
+            Doador doador;
+            DoadorBD doadorBD;
+            doador = new Doador();
+            doadorBD = new DoadorBD();
+
+            int doadorID = (Integer.parseInt(textCodigo.getText()));
+            doador = doadorBD.buscarIndividualBD(doadorID);
+            textEndereco.setText(doador.getEndereco());
+            textNome.setText(doador.getNome());
+            textMae.setText(doador.getMae());
+            textPai.setText(doador.getPai());
+            textRG.setText(doador.getRg());
+            comboSangue.setValue(doador.getTipoSangue());
+
+            if (doador.getSexo().equals("Masculino")) {
+                radioMasculino.setSelected(true);
+            } else if (doador.getSexo().equals("Feminino")) {
+                radioFeminino.setSelected(true);
+            }
+            Date date = doador.getDataNascimento();
+            LocalDate localD = date.toLocalDate();
+            pickerNascimento.setValue(localD);
+        }
+    }
 }

@@ -16,9 +16,9 @@
          <children>
             <HBox fx:id="hboxPrincipal" alignment="CENTER" prefHeight="66.0" prefWidth="558.0">
                <children>
-                  <Button fx:id="buttonPizza" mnemonicParsing="false" onAction="#geraPizza" text="Doador Por Sexo" />
-                  <Button fx:id="buttonLinha" mnemonicParsing="false" onAction="#geraLinha" text="Doação Por Tipo Sanguíneo" />
-                  <Button fx:id="buttonBarra" mnemonicParsing="false" onAction="#geraBarra" text="Problemas Em Doações" />
+                  <Button fx:id="buttonPizza" mnemonicParsing="false" onAction="#geraPizza" onMouseEntered="#geraPizzaMouseEntered" text="Doador Por Sexo" />
+                  <Button fx:id="buttonLinha" mnemonicParsing="false" onAction="#geraLinha" onMouseEntered="#geraLinhaMouseEntered" text="Doação Por Tipo Sanguíneo" />
+                  <Button fx:id="buttonBarra" mnemonicParsing="false" onAction="#geraBarra" onMouseEntered="#geraBarraMouseEntered" text="Problemas Em Doações" />
                </children>
             </HBox>
             <Pane fx:id="paneGrafico" prefHeight="204.0" prefWidth="344.0" />
