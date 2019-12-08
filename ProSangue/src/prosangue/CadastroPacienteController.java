@@ -160,6 +160,8 @@ public class CadastroPacienteController implements Initializable {
             Logger.getLogger(CadastroPacienteController.class.getName()).log(Level.SEVERE, null, ex);
         }
         tableView.setItems(observableDoador);
+        
+        
     }
 
     @FXML

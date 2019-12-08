@@ -129,16 +129,28 @@ public class DoadorBD {
             conexao.conectar();
             Statement declaracao;
             declaracao = conexao.con.createStatement();
-            declaracao.executeUpdate("UPDATE doador SET nome = '" + doador.getNome()
-                    + "', data_nascimento ='" + doador.getDataNascimento()
-                    + "', endereco ='" + doador.getEndereco()
-                    + "', nome_pai ='" + doador.getPai()
-                    + "', nome_mae ='" + doador.getMae()
-                    + "', rg ='" + doador.getRg()
-                    + "', ultima_doacao =" + doador.getUltimaDoacao()
-                    + ", tipo_sangue ='" + doador.getTipoSangue()
-                    + "', sexo ='" + doador.getSexo()
-                    + "' WHERE id = " + doador.getID());
+            if (doador.getUltimaDoacao() != null) {
+                declaracao.executeUpdate("UPDATE doador SET nome = '" + doador.getNome()
+                        + "', data_nascimento ='" + doador.getDataNascimento()
+                        + "', endereco ='" + doador.getEndereco()
+                        + "', nome_pai ='" + doador.getPai()
+                        + "', nome_mae ='" + doador.getMae()
+                        + "', rg ='" + doador.getRg()
+                        + "', ultima_doacao ='" + doador.getUltimaDoacao()
+                        + "', tipo_sangue ='" + doador.getTipoSangue()
+                        + "', sexo ='" + doador.getSexo()
+                        + "' WHERE id = " + doador.getID());
+            } else {
+                declaracao.executeUpdate("UPDATE doador SET nome = '" + doador.getNome()
+                        + "', data_nascimento ='" + doador.getDataNascimento()
+                        + "', endereco ='" + doador.getEndereco()
+                        + "', nome_pai ='" + doador.getPai()
+                        + "', nome_mae ='" + doador.getMae()
+                        + "', rg ='" + doador.getRg()
+                        + "', tipo_sangue ='" + doador.getTipoSangue()
+                        + "', sexo ='" + doador.getSexo()
+                        + "' WHERE id = " + doador.getID());
+            }
             conexao.desconectar();
             JOptionPane.showMessageDialog(null, "Alteração da doador " + doador.getID() + " feita com sucesso."); //Mensagem de confirmação
 

@@ -113,6 +113,34 @@ public class DoacaoBD {
         return null;
     }
 
+        public Doacao buscarUltimaDoacaoIndividual(int idDoador) {
+        try {
+            Doacao doacao = new Doacao();
+            conexao.conectar();
+            ResultSet consulta;
+            Statement declaracao = conexao.con.createStatement();
+            consulta = declaracao.executeQuery("SELECT * FROM Doacao WHERE fk_doador_id = " + idDoador + " AND horario = (SELECT MAX(horario)) ORDER BY horario");
+            while (consulta.next()) {
+                doacao.setChagas(consulta.getInt("chagas"));
+                doacao.setFkDoador(consulta.getInt("fk_doador_id"));
+                doacao.setHepatiteB(consulta.getInt("hepatite_b"));
+                doacao.setHepatiteC(consulta.getInt("hepatite_c"));
+                doacao.setHorario(consulta.getTimestamp("horario"));
+                doacao.setHtlv(consulta.getInt("htlv"));
+                doacao.setId(consulta.getInt("id"));
+                doacao.setSifilis(consulta.getInt("sifilis"));
+                doacao.setTesteAnemia(consulta.getInt("teste_anemia"));
+                doacao.setTriagemClinica(consulta.getInt("triagem_clinica"));
+            }
+            //System.out.println("Resultado da busca - IDDoacao:" + doacao.getID() + ". Lugares:" + doacao.getLugares() + ". Ocupada:" + doacao.getOcupada());
+            conexao.desconectar();
+            return doacao;
+        } catch (SQLException ex) {
+            Logger.getLogger(DoacaoBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    } 
+    
     public void alterar(Doacao doacao) {
         try {
             conexao.conectar();
