@@ -15,14 +15,14 @@
             <Label layoutX="39.0" layoutY="29.0" text="Código:" />
             <TextField fx:id="textCodigo" layoutX="91.0" layoutY="25.0" prefHeight="25.0" prefWidth="66.0" />
             <Button fx:id="buscaDoador" layoutX="174.0" layoutY="25.0" mnemonicParsing="false" onAction="#buscarDoador" text="Busca" />
-            <CheckBox fx:id="checkHepatiteB" layoutX="33.0" layoutY="114.0" mnemonicParsing="false" text="HepatiteB" />
-            <CheckBox fx:id="checkHepatiteC" layoutX="139.0" layoutY="114.0" mnemonicParsing="false" text="HepatiteC" />
+            <CheckBox fx:id="checkHepatiteB" layoutX="33.0" layoutY="114.0" mnemonicParsing="false" text="Hepatite B" />
+            <CheckBox fx:id="checkHepatiteC" layoutX="139.0" layoutY="114.0" mnemonicParsing="false" text="Hepatite C" />
             <CheckBox fx:id="checkChagas" layoutX="250.0" layoutY="114.0" mnemonicParsing="false" text="Chagas" />
-            <CheckBox fx:id="checkSifilis" layoutX="340.0" layoutY="114.0" mnemonicParsing="false" prefWidth="150.0" text="Sifilis" />
-            <CheckBox fx:id="checkAids" layoutX="33.0" layoutY="171.0" mnemonicParsing="false" text="Aids" />
-            <CheckBox fx:id="checkHtlv" layoutX="139.0" layoutY="171.0" mnemonicParsing="false" text="Htlv" />
+            <CheckBox fx:id="checkSifilis" layoutX="340.0" layoutY="114.0" mnemonicParsing="false" prefWidth="150.0" text="Sífilis" />
+            <CheckBox fx:id="checkAids" layoutX="33.0" layoutY="171.0" mnemonicParsing="false" text="AIDS" />
+            <CheckBox fx:id="checkHtlv" layoutX="139.0" layoutY="171.0" mnemonicParsing="false" text="HTLV" />
             <CheckBox fx:id="checkAnemia" layoutX="250.0" layoutY="171.0" mnemonicParsing="false" text="Anemia" />
-            <CheckBox fx:id="checkTriagemClinica" layoutX="340.0" layoutY="171.0" mnemonicParsing="false" text="Trigaem Clinica" />
+            <CheckBox fx:id="checkTriagemClinica" layoutX="340.0" layoutY="171.0" mnemonicParsing="false" text="Triagem Clínica" />
             <Button fx:id="btnCadastrarDoacao" layoutX="62.0" layoutY="276.0" mnemonicParsing="false" onAction="#cadastrarDoacao" text="Cadastrar" />
             <Button fx:id="btnAlterarDoacao" layoutX="192.0" layoutY="276.0" mnemonicParsing="false" onAction="#alterarDoacao" text="Alterar" />
             <Button fx:id="btnEnviarNotificacao" layoutX="299.0" layoutY="276.0" mnemonicParsing="false" onAction="#enviarNotificacao" text="Enviar Notificação" />

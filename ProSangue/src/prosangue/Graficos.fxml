@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="prosangue.GraficosController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prosangue.GraficosController">
     <stylesheets>
         <URL value="@graficos.css" />
     </stylesheets>
@@ -16,9 +16,9 @@
          <children>
             <HBox fx:id="hboxPrincipal" alignment="CENTER" prefHeight="66.0" prefWidth="558.0">
                <children>
-                  <Button fx:id="buttonPizza" mnemonicParsing="false" onAction="#geraPizza" text="Pizza" />
-                  <Button fx:id="buttonLinha" mnemonicParsing="false" onAction="#geraLinha" text="Linha" />
-                  <Button fx:id="buttonBarra" mnemonicParsing="false" onAction="#geraBarra" text="Barra" />
+                  <Button fx:id="buttonPizza" mnemonicParsing="false" onAction="#geraPizza" text="Doador Por Sexo" />
+                  <Button fx:id="buttonLinha" mnemonicParsing="false" onAction="#geraLinha" text="Doação Por Tipo Sanguíneo" />
+                  <Button fx:id="buttonBarra" mnemonicParsing="false" onAction="#geraBarra" text="Problemas Em Doações" />
                </children>
             </HBox>
             <Pane fx:id="paneGrafico" prefHeight="204.0" prefWidth="344.0" />

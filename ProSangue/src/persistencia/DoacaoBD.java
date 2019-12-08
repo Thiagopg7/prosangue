@@ -11,6 +11,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javax.swing.JOptionPane;
 import objetos.Doacao;
 
@@ -147,4 +149,177 @@ public class DoacaoBD {
             Logger.getLogger(DoacaoBD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public ObservableList<Integer> buscarQtdSexo() throws SQLException {
+        ObservableList<Integer> qtd = FXCollections.observableArrayList();
+        ResultSet consulta;
+        conexao.conectar();
+        Statement declaracao = conexao.con.createStatement();
+        consulta = declaracao.executeQuery("SELECT COUNT(sexo) "
+                + "FROM doador "
+                + "WHERE sexo = 'Masculino'");
+
+        while (consulta.next()) {
+            qtd.add(consulta.getInt("COUNT(sexo)"));
+        }
+        consulta = declaracao.executeQuery("SELECT COUNT(sexo) "
+                + "FROM doador "
+                + "WHERE sexo = 'Feminino'");
+        while (consulta.next()) {
+            qtd.add(consulta.getInt("COUNT(sexo)"));
+        }
+
+        conexao.desconectar();
+        return qtd;
+    }
+
+    public ObservableList<Integer> buscarQtdTipoSanguineo() throws SQLException {
+        ObservableList<Integer> qtd = FXCollections.observableArrayList();
+        ResultSet consulta;
+        conexao.conectar();
+        Statement declaracao = conexao.con.createStatement();
+
+        consulta = declaracao.executeQuery("SELECT COUNT(tipo_sangue) "
+                + "FROM doacao "
+                + "JOIN doador "
+                + "WHERE doacao.fk_doador_id = doador.id AND tipo_sangue = 'A+'");
+
+        while (consulta.next()) {
+            qtd.add(consulta.getInt("COUNT(tipo_sangue)"));
+        }
+
+        consulta = declaracao.executeQuery("SELECT COUNT(tipo_sangue) "
+                + "FROM doacao "
+                + "JOIN doador "
+                + "WHERE doacao.fk_doador_id = doador.id AND tipo_sangue = 'A-'");
+        while (consulta.next()) {
+            qtd.add(consulta.getInt("COUNT(tipo_sangue)"));
+        }
+
+        consulta = declaracao.executeQuery("SELECT COUNT(tipo_sangue) "
+                + "FROM doacao "
+                + "JOIN doador "
+                + "WHERE doacao.fk_doador_id = doador.id AND tipo_sangue = 'B+'");
+        while (consulta.next()) {
+            qtd.add(consulta.getInt("COUNT(tipo_sangue)"));
+        }
+
+        consulta = declaracao.executeQuery("SELECT COUNT(tipo_sangue) "
+                + "FROM doacao "
+                + "JOIN doador "
+                + "WHERE doacao.fk_doador_id = doador.id AND tipo_sangue = 'B-'");
+        while (consulta.next()) {
+            qtd.add(consulta.getInt("COUNT(tipo_sangue)"));
+        }
+
+        consulta = declaracao.executeQuery("SELECT COUNT(tipo_sangue) "
+                + "FROM doacao "
+                + "JOIN doador "
+                + "WHERE doacao.fk_doador_id = doador.id AND tipo_sangue = 'AB+'");
+        while (consulta.next()) {
+            qtd.add(consulta.getInt("COUNT(tipo_sangue)"));
+        }
+
+        consulta = declaracao.executeQuery("SELECT COUNT(tipo_sangue) "
+                + "FROM doacao "
+                + "JOIN doador "
+                + "WHERE doacao.fk_doador_id = doador.id AND tipo_sangue = 'AB-'");
+        while (consulta.next()) {
+            qtd.add(consulta.getInt("COUNT(tipo_sangue)"));
+        }
+
+        consulta = declaracao.executeQuery("SELECT COUNT(tipo_sangue) "
+                + "FROM doacao "
+                + "JOIN doador "
+                + "WHERE doacao.fk_doador_id = doador.id AND tipo_sangue = 'O+'");
+        while (consulta.next()) {
+            qtd.add(consulta.getInt("COUNT(tipo_sangue)"));
+        }
+
+        consulta = declaracao.executeQuery("SELECT COUNT(tipo_sangue) "
+                + "FROM doacao "
+                + "JOIN doador "
+                + "WHERE doacao.fk_doador_id = doador.id AND tipo_sangue = 'O-'");
+        while (consulta.next()) {
+            qtd.add(consulta.getInt("COUNT(tipo_sangue)"));
+        }
+
+        conexao.desconectar();
+        return qtd;
+    }
+
+    public ObservableList<Integer> buscarQtdProblemas() throws SQLException {
+        ObservableList<Integer> qtd = FXCollections.observableArrayList();
+        ResultSet consulta;
+        conexao.conectar();
+        Statement declaracao = conexao.con.createStatement();
+
+//          private int hepatiteC;;
+//    private int chagas;
+//    private int sifilis;
+//    private int aids;
+//    private int htlv;
+//    private int testeAnemia;
+//    private int triagemClinica;
+        consulta = declaracao.executeQuery("SELECT COUNT(hepatite_b) "
+                + "FROM doacao "
+                + "WHERE hepatite_b = 1");
+        while (consulta.next()) {
+            qtd.add(consulta.getInt("COUNT(hepatite_b)"));
+        }
+
+        consulta = declaracao.executeQuery("SELECT COUNT(hepatite_c) "
+                + "FROM doacao "
+                + "WHERE hepatite_c = 1");
+        while (consulta.next()) {
+            qtd.add(consulta.getInt("COUNT(hepatite_c)"));
+        }
+
+        consulta = declaracao.executeQuery("SELECT COUNT(chagas) "
+                + "FROM doacao "
+                + "WHERE chagas = 1");
+        while (consulta.next()) {
+            qtd.add(consulta.getInt("COUNT(chagas)"));
+        }
+
+        consulta = declaracao.executeQuery("SELECT COUNT(sifilis) "
+                + "FROM doacao "
+                + "WHERE sifilis = 1");
+        while (consulta.next()) {
+            qtd.add(consulta.getInt("COUNT(sifilis)"));
+        }
+
+        consulta = declaracao.executeQuery("SELECT COUNT(aids) "
+                + "FROM doacao "
+                + "WHERE aids = 1");
+        while (consulta.next()) {
+            qtd.add(consulta.getInt("COUNT(aids)"));
+        }
+
+        consulta = declaracao.executeQuery("SELECT COUNT(htlv) "
+                + "FROM doacao "
+                + "WHERE htlv = 1");
+        while (consulta.next()) {
+            qtd.add(consulta.getInt("COUNT(htlv)"));
+        }
+
+
+        consulta = declaracao.executeQuery("SELECT COUNT(teste_anemia) "
+                + "FROM doacao "
+                + "WHERE teste_anemia = 1");
+        while (consulta.next()) {
+            qtd.add(consulta.getInt("COUNT(teste_anemia)"));
+        }
+
+        consulta = declaracao.executeQuery("SELECT COUNT(triagem_clinica) "
+                + "FROM doacao "
+                + "WHERE triagem_clinica = 1");
+        while (consulta.next()) {
+            qtd.add(consulta.getInt("COUNT(triagem_clinica)"));
+        }
+
+        conexao.desconectar();
+        return qtd;
+    }
+
 }
