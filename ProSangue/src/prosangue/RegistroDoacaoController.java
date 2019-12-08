@@ -61,10 +61,6 @@ public class RegistroDoacaoController implements Initializable {
     @FXML
     private Button btnCadastrarDoacao;
     @FXML
-    private Button btnAlterarDoacao;
-    @FXML
-    private Button btnEnviarNotificacao;
-    @FXML
     private TextField textNome;
     @FXML
     private ComboBox<String> comboSangue;
@@ -105,9 +101,10 @@ public class RegistroDoacaoController implements Initializable {
             stage.close();
             JOptionPane.showMessageDialog(null, "Fazem " + dias + " dias desde a última doação de " + doador.getNome() + ". O mínimo de dias necessários para doar novamente são " + diasNecessarios + ".");
         }
-
+        btnCadastrarDoacao.setDisable(false);
     }
 
+    
     @FXML
     private void cadastrarDoacao(ActionEvent event) {
         Doacao doacao;
@@ -261,11 +258,7 @@ public class RegistroDoacaoController implements Initializable {
 
     }
 
-    @FXML
-    private void alterarDoacao(ActionEvent event) {
-    }
 
-    @FXML
     private void enviarNotificacao(ActionEvent event) {
         JOptionPane.showMessageDialog(null, "Doador notificado com sucesso.");
     }

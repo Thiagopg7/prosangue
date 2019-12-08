@@ -7,12 +7,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prosangue.GraficosController">
+<AnchorPane id="AnchorPane" prefHeight="487.0" prefWidth="526.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="prosangue.GraficosController">
     <stylesheets>
         <URL value="@graficos.css" />
     </stylesheets>
    <children>
-      <VBox fx:id="vboxPrincipal" layoutX="11.0" layoutY="9.0" prefHeight="541.0" prefWidth="602.0">
+      <VBox fx:id="vboxPrincipal" layoutX="11.0" layoutY="9.0" prefHeight="473.0" prefWidth="496.0">
          <children>
             <HBox fx:id="hboxPrincipal" alignment="CENTER" prefHeight="66.0" prefWidth="558.0">
                <children>
@@ -21,7 +21,7 @@
                   <Button fx:id="buttonBarra" mnemonicParsing="false" onAction="#geraBarra" onMouseEntered="#geraBarraMouseEntered" text="Problemas Em Doações" />
                </children>
             </HBox>
-            <Pane fx:id="paneGrafico" prefHeight="204.0" prefWidth="344.0" />
+            <Pane fx:id="paneGrafico" prefHeight="214.0" prefWidth="496.0" />
          </children>
       </VBox>
    </children>

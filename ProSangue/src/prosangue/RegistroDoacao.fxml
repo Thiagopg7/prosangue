@@ -23,9 +23,7 @@
             <CheckBox fx:id="checkHtlv" layoutX="139.0" layoutY="171.0" mnemonicParsing="false" text="HTLV" />
             <CheckBox fx:id="checkAnemia" layoutX="250.0" layoutY="171.0" mnemonicParsing="false" text="Anemia" />
             <CheckBox fx:id="checkTriagemClinica" layoutX="340.0" layoutY="171.0" mnemonicParsing="false" text="Triagem Clínica" />
-            <Button fx:id="btnCadastrarDoacao" layoutX="62.0" layoutY="276.0" mnemonicParsing="false" onAction="#cadastrarDoacao" text="Cadastrar" />
-            <Button fx:id="btnAlterarDoacao" layoutX="192.0" layoutY="276.0" mnemonicParsing="false" onAction="#alterarDoacao" text="Alterar" />
-            <Button fx:id="btnEnviarNotificacao" layoutX="299.0" layoutY="276.0" mnemonicParsing="false" onAction="#enviarNotificacao" text="Enviar Notificação" />
+            <Button fx:id="btnCadastrarDoacao" disable="true" layoutX="62.0" layoutY="276.0" mnemonicParsing="false" onAction="#cadastrarDoacao" text="Cadastrar" />
             <Label layoutX="36.0" layoutY="65.0" text="Nome:" />
             <TextField fx:id="textNome" editable="false" layoutX="90.0" layoutY="62.0" prefHeight="25.0" prefWidth="355.0" />
             <ComboBox fx:id="comboSangue" layoutX="329.0" layoutY="25.0" prefHeight="25.0" prefWidth="117.0" />
